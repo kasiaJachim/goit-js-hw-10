@@ -1,4 +1,4 @@
-'use strict';
+
 import './css/styles.css';
 import { fetchCountries } from './fetchCountries.js';
 import Notiflix from 'notiflix';
