@@ -25,6 +25,7 @@ function onSearch() {
     fetchCountries(searchBox.value.trim())
       .then(renderCountryList)
       .catch(error => {
+        console.log(error);
         Notiflix.Notify.failure('Oops, there is no country with that name');
         countryList.innerHTML = '';
       });
@@ -49,18 +50,16 @@ function renderCountryList(countries) {
   }
 }
 function createCoutriesList(countries) {
-  markup = countries
-    .map(country => {
+  markup = countries.map(country => {
       return `<li>
-            <img src=" ${country.flags.svg}" width=30 alt="${flags.alt}"/>
-            <span>: ${country.name.official}</span>
+            <img src=" ${country.flags.svg}" width=50 alt="${country.name.common}"/>
+            <span> ${country.name.official}</span>
             </li>`;
     })
     .join('');
 }
 function createCoutryMarkup(countries) {
-  markup = countries
-    .map(country => {
+  markup = countries.map(country => {
     return `<li>
             <img src=" ${country.flags.svg}" width= 40 alt="${country.name.common}/>
             <span> ${country.name.official}</span>
