@@ -38,7 +38,7 @@ function renderCountryList(countries) {
     countryList.innerHTML = '';
     countryInfo.innerHTML = markup;
   } else if (countries.length === 1) {
-    createCoutryMarkup(countries);
+    createCountryMarkup(countries);
     countryInfo.innerHTML = '';
     countryList.innerHTML = markup;
   } else if (countries.length > 10) {
@@ -58,14 +58,14 @@ function createCoutriesList(countries) {
     })
     .join('');
 }
-function createCoutryMarkup(countries) {
+function createCountryMarkup(countries) {
   markup = countries.map(country => {
     return `<li>
-            <img src=" ${country.flags.svg}" width= 40 alt="${country.name.common}/>
-            <span> ${country.name.official}</span>
-            </li>
-            <p>Capital: ${country.capital}</p>
-            <p>Population: ${country.population}</p>
-            <p>Languages: ${Object.values(country.languages).join(', ')}</p>`;
+    <img src="${country.flags.svg}" width = 30 alt="${country.name.common}" />
+    <span>${country.name.official}</span>
+    </li>
+    <div>Capital: ${country.capital}</div>
+    <div>Population: ${country.population}</div>
+    <div>Languages: ${Object.values(country.languages).join(`, `)}</div>`;
   });
 }
